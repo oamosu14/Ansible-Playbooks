@@ -1,0 +1,11 @@
+- hosts: all
+  tasks:
+  - name: ansible create directory with_items example
+    file:
+      path: "{{ item.dest }}"
+      mode: "{{item.mode}}"
+      state: directory
+    with_items:
+      - { dest: '/tmp/devops_system1', mode: '0777'}
+      - { dest: '/tmp/devops_system2', mode: '0707'}
+      - { dest: '/tmp/devops_system3', mode: '0575'}

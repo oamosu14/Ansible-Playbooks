@@ -1,0 +1,11 @@
+Create multiple directories using with_items
+- hosts: all
+  tasks:
+  - name: ansible create multiple directory example
+    file:
+      path: "{{ item }}"
+      state: directory
+    with_items:
+      - '/tmp/devops_system1'
+      - '/tmp/devops_system2'
+      - '/tmp/devops_system3'

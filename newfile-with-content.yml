@@ -1,0 +1,19 @@
+Creating a new file with content
+One way is to create an empty file using the above method and then using the blockinfile or lineinfile module to add content to it.
+
+But an easier method is to use the Ansible copy module to create a new file with content inside.
+
+The copy module is commonly used to copy a source file to a destination file. But there is a parameter ‘content’ which can be used to create a file with the content.
+
+Note: If the file already exists then the module would check for the contents of that file. And if the contents are same then nothing happens. But if the content is different then the file will be overwritten. So do not use this on an existing file unless necessary.
+
+The following task will create a new file ‘remote_server.txt’ if the file is not present.
+
+- hosts: all
+  tasks:
+  - name: Ansible create file with content example
+    copy:
+      dest: "/Users/mdtutorials2/Documents/Ansible/remote_server.txt"
+      content: |
+        dog1
+        tiger

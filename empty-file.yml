@@ -1,0 +1,15 @@
+Creating an empty file in Ansible
+
+You can Create an empty file using the file module. You just need to set two parmaters.
+
+Path – This is the location where you want the file to be created. It can be either a relative path or an absolute path. You should also include the name of the file being created here.
+State – To create a new file this parameter should be set to ‘touch’. It works like the touch operation in Linux.
+
+In the following task, I am creating a new file called ‘devops_server’ in the location set against the ‘path’ parameter. I am giving the absolute path. Please see the default permissions and owner in the output.
+
+- hosts: all
+  tasks:
+  - name: Ansible create file if it doesn't exist example
+    file:
+      path: "/Users/mdtutorials2/Documents/Ansible/devops_server.txt"
+      state: touch
